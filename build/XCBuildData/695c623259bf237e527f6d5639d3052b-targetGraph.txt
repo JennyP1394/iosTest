@@ -1,2 +1,0 @@
-Target dependency graph (1 target)
-MovieDBApp in MovieDBApp, no dependencies

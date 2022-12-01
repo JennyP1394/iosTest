@@ -1,6 +1,0 @@
-Target dependency graph (3 targets)
-MovieDBApp in MovieDBApp, no dependencies
-MovieDBAppTests in MovieDBApp, depends on:
-MovieDBApp in MovieDBApp (explicit)
-MovieDBAppUITests in MovieDBApp, depends on:
-MovieDBApp in MovieDBApp (explicit)
