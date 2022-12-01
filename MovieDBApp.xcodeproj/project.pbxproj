@@ -350,6 +350,7 @@
 				D63FE740291B777300C9AF21 /* Frameworks */,
 				D63FE741291B777300C9AF21 /* Resources */,
 				BB5D65FA7276F00F91C82C7C /* [CP] Embed Pods Frameworks */,
+				D69C3F8F2938D9A500EDBE29 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -570,6 +571,27 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MovieDBApp/Pods-MovieDBApp-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		D69C3F8F2938D9A500EDBE29 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"",
+				"${PODS_ROOT}/Target Support Files/Pods-MovieDBApp/Pods-MovieDBApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MovieDBApp/Pods-MovieDBApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
