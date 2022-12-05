@@ -22,7 +22,7 @@ jobs:
         run: ls
       - name: Cache Dependencies
         id: ios-cache
-        uses: actions/cache@v3
+        uses: ylemkimon/cache-restore@v2
         env:
           cache-name: cache-ios-dependencies
         with:
@@ -30,6 +30,11 @@ jobs:
           key: ${{ runner.os }}-pods-${{ hashFiles('**/Podfile.lock') }}
           restore-keys: |
             ${{ runner.os }}-pods-
+      - name: Validate Cache
+        if: steps.ios-cache.outputs.cache-hit != 'true'
+        run: ls      
+      - name: Clean Build
+        run: xcodebuild clean install
       - name: Set Default Scheme
         run: |
           scheme_list=$(xcodebuild -list -json | tr -d "\n")
