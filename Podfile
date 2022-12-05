@@ -7,7 +7,6 @@ target 'test' do
 
   # Pods for test
 pod 'Alamofire', :inhibit_warnings => true
-pod 'RealmSwift'
 
   target 'testTests' do
     inherit! :search_paths
