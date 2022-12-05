@@ -1,0 +1,43 @@
+name: iOS starter workflow
+
+on:
+  push:
+    branches: [ "" ]
+  pull_request:
+    branches: [ "" ]
+
+jobs:
+  build:
+    name: Build and Test default scheme using any available iPhone simulator
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: PWD
+        run: pwd
+      - name: Installing Pos
+        run: pod install
+      - name: Check Path of Pods
+        run: ls
+      - name: Cache Dependencies
+        id: ios-cache
+        uses: ylemkimon/cache-restore@v2
+        env:
+          cache-name: cache-ios-dependencies
+        with:
+          path: Pods
+          key: ${{ runner.os }}-pods-${{ hashFiles('**/Podfile.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-pods-
+      - name: Validate Cache
+        if: steps.ios-cache.outputs.cache-hit != 'true'
+        run: ls      
+      - uses: sparkfabrik/ios-build-action@v1.2.0
+        with:
+          project-path: App.xcodeproj
+          p12-base64: ${{ secrets.P12_BASE64 }}
+          mobileprovision-base64: ${{ secrets.MOBILEPROVISION_BASE64 }}
+          code-signing-identity: ${{ secrets.CODE_SIGNING_IDENTITY }}
+          team-id: ${{ secrets.TEAM_ID }}
+          workspace-path: App.xcworkspace # optional
