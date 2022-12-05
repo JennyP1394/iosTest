@@ -33,8 +33,6 @@ jobs:
       - name: Validate Cache
         if: steps.ios-cache.outputs.cache-hit != 'true'
         run: ls      
-      - name: Clean Build
-        run: xcodebuild clean install
       - name: Set Default Scheme
         run: |
           scheme_list=$(xcodebuild -list -json | tr -d "\n")
