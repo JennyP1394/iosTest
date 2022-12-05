@@ -20,6 +20,10 @@ jobs:
         run: pod install
       - name: Check Path of Pods
         run: ls
+      - name: Pods Dependency Verify
+        run: |
+          cd Pods
+          ls
       - name: Cache Dependencies
         id: ios-cache
         uses: actions/cache@v3
