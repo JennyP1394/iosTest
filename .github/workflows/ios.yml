@@ -31,7 +31,7 @@ jobs:
           cache-name: cache-ios-dependencies
         with:
           # npm cache files are stored in `~/.npm` on Linux/macOS
-          path: ~/Pods
+          path: ~/.Pods
           key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/Podfile') }}
           restore-keys: |
             ${{ runner.os }}-build-${{ env.cache-name }}-
