@@ -16,6 +16,12 @@ jobs:
         uses: actions/checkout@v3
       - name: PWD
         run: pwd
+      - name: Cache Dependencies
+        id: ios-cache
+        uses: actions/cache@v3
+        env:
+          cache-name: cache-ios-dependencies
+          
       - name: Set Default Scheme
         run: |
           scheme_list=$(xcodebuild -list -json | tr -d "\n")
