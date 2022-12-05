@@ -30,13 +30,10 @@ jobs:
         env:
           cache-name: cache-ios-dependencies
         with:
-          path: ~/.Pods
-          key: $ios-cache
+          path: Pods
+          key: ${{ runner.os }}-pods-${{ hashFiles('**/Podfile.lock') }}
           restore-keys: |
-            $ios-cache
-            ${{ runner.os }}-build-
-            ${{ runner.os }}-
-          
+            ${{ runner.os }}-pods-
       - name: Set Default Scheme
         run: |
           scheme_list=$(xcodebuild -list -json | tr -d "\n")
